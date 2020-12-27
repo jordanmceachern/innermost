@@ -1,8 +1,6 @@
 import React from 'react'
 import './LoadingSpinner.css'
 
-// Generic loading spinner to use anywhere
-
 const LoadingSpinner = () => {
   return (
     <div className='outer-ring'>

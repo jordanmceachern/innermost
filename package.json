@@ -1,5 +1,5 @@
 {
-  "name": "innermost",
+  "name": "living-in-a-video-game",
   "version": "1.0.0",
   "description": "web-based novel",
   "main": "index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jordanmceachern/innermost.git"
+    "url": "git+https://github.com/jordanmceachern/living-in-a-video-game.git"
   },
   "author": "Jordan McEachern",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jordanmceachern/innermost/issues"
+    "url": "https://github.com/jordanmceachern/living-in-a-video-game/issues"
   },
-  "homepage": "https://github.com/jordanmceachern/innermost#readme",
+  "homepage": "https://github.com/jordanmceachern/living-in-a-video-game#readme",
   "dependencies": {
     "node": "^11.15.0"
   }
