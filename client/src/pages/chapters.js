@@ -1,30 +1,29 @@
-import * as React from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../components/Layout/Layout'
+import LoadingSpinner from '../components/LoadingSpinner/LoadingSpinner'
 
-const IndexPage = () => {
+const Chapters = () => {
   return (
     <Layout>
       <main>
-        <title>Main Menu</title>
+        <title>Chapters</title>
         <h1>
-          Welcome to Living in a Video Game
+          Living in a Video Game 'Chapters' page TBD
         </h1>
         <ul>
           <li>
             <Link to='/chapter-one'>
-              Begin the story
+              Chapter One
             </Link>
           </li>
           <li>
-            <Link to='/chapters'>
-              Select Chapter
+            <Link to='/'>
+              Main Menu
             </Link>
           </li>
           <li>
-            <Link to='/about'>
-              About Living in a Video Game
-            </Link>
+            <LoadingSpinner />
           </li>
         </ul>
       </main>
@@ -32,4 +31,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default Chapters
