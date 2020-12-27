@@ -1,0 +1,24 @@
+{
+  "name": "innermost",
+  "version": "1.0.0",
+  "description": "web-based novel",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "init-client": "npm init gatsby",
+    "create-client": "gatsby new client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanmceachern/innermost.git"
+  },
+  "author": "Jordan McEachern",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jordanmceachern/innermost/issues"
+  },
+  "homepage": "https://github.com/jordanmceachern/innermost#readme",
+  "dependencies": {
+    "node": "^11.15.0"
+  }
+}
