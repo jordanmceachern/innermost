@@ -10,23 +10,26 @@ const IndexPage = () => {
         <h1>
           Welcome to Living in a Video Game
         </h1>
-        <ul>
-          <li>
-            <Link to='/chapter-one'>
-              Begin the story
-            </Link>
-          </li>
-          <li>
-            <Link to='/chapters'>
-              Select Chapter
-            </Link>
-          </li>
-          <li>
-            <Link to='/about'>
-              About Living in a Video Game
-            </Link>
-          </li>
-        </ul>
+        <div className='main-menu'>
+          <ul>
+            <li>
+              <Link to='/chapters/chapter-1'>
+                Begin the story
+              </Link>
+            </li>
+            <li>
+              <Link to='/chapters'>
+                Select Chapter
+              </Link>
+            </li>
+            <li>
+              <Link to='/about'>
+                About Living in a Video Game
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <p className='copyright'>Copyright 2020</p>
       </main>
     </Layout>
   )
