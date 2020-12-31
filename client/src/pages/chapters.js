@@ -25,7 +25,7 @@ const Chapters = () => {
 
     if (numberOfFiles > 0) {
       for (let i = 1; i <= numberOfFiles; i++) {
-        chapterList.push(<li key={i}><Link to={`/chapter/chapter-${i}`}>Chapter {i}</Link></li>)
+        chapterList.push(<li key={i}><Link to={`/chapters/chapter-${i}`}>Chapter {i}</Link></li>)
       }
       setTableOfContents(chapterList)
     }
