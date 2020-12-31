@@ -3,13 +3,16 @@ import { Link } from 'gatsby'
 import Layout from '../Layout/Layout'
 
 const Chapter = props => {
-  console.log('Chapter props: ', props)
+  const { pageContext } = props
+  const { content, chapterNumber } = pageContext
+  const pageTitle = 'Chapter ' + chapterNumber
+  //
   return (
     <Layout>
       <main>
-        <title>About</title>
+        <title>{pageTitle}</title>
         <h1>
-          Living in a Video Game 'Chapter' page TBD
+          {pageTitle}
         </h1>
         <p>
           <Link to='/'>
