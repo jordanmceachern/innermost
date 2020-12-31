@@ -12,7 +12,7 @@ const IndexPage = () => {
         </h1>
         <ul>
           <li>
-            <Link to='/chapter-one'>
+            <Link to='/chapters/chapter-1'>
               Begin the story
             </Link>
           </li>
