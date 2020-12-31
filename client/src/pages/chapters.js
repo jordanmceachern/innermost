@@ -38,7 +38,7 @@ const Chapters = () => {
         <h1>
           Table of Contents
         </h1>
-        <ul>
+        <ul className='table-of-contents'>
           {
             (tableOfContents.length === 0) && (
               <li><LoadingSpinner /></li>
@@ -50,7 +50,7 @@ const Chapters = () => {
             )
           }
         </ul>
-        <p>
+        <p className='return-to-home'>
           <Link to='/'>Main Menu</Link>
         </p>
       </main>

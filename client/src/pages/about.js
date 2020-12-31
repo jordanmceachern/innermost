@@ -10,7 +10,7 @@ const About = () => {
         <h1>
           Living in a Video Game 'About' page TBD
         </h1>
-        <p>
+        <p className='return-to-home'>
           <Link to='/'>
             Main Menu
           </Link>
