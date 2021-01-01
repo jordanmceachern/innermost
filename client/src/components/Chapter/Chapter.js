@@ -15,7 +15,16 @@ const Chapter = props => {
     const currentSpanStr = chapterLines[number].slice(1)
     const lineTextStart = currentSpanStr.indexOf('>') + 1
     const lineTextEnd = currentSpanStr.indexOf('<')
-    return currentSpanStr.slice(lineTextStart, lineTextEnd)
+    let rawLine = currentSpanStr.slice(lineTextStart, lineTextEnd)
+    //
+    rawLine = rawLine.replaceAll('&rsquo;', '\'')
+    rawLine = rawLine.replaceAll('&lsquo;', '\'')
+    rawLine = rawLine.replaceAll('&#39;', '\'')
+    rawLine = rawLine.replaceAll('&rdquo;', '"')
+    rawLine = rawLine.replaceAll('&ldquo;', '"')
+    rawLine = rawLine.replaceAll('&quot;', '"')
+    //
+    return rawLine
   }
   const changeLine = iterator => {
     const stagedNumber = currentLine.number + iterator
