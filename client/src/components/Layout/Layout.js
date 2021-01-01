@@ -11,13 +11,13 @@ const Layout = props => {
         {
           !isHomePage && (
             <p className='return-to-home'>
-              <Link to='/'>
+              <Link to='/' title='Go back to the main menu'>
                 Return to Home
               </Link>
             </p>
           )
         }
-        <p>
+        <p className='copyright'>
           &copy; Copyright {new Date().getFullYear()}
         </p>
       </footer>

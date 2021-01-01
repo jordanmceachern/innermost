@@ -24,6 +24,10 @@ const Chapter = props => {
     rawLine = rawLine.replaceAll('&ldquo;', '"')
     rawLine = rawLine.replaceAll('&quot;', '"')
     //
+    if (rawLine.length === 0) {
+      rawLine = '...'
+    }
+    //
     return rawLine
   }
   const changeLine = iterator => {
@@ -102,14 +106,14 @@ const Chapter = props => {
                 <div className='change-text-btn-container'>
                   {
                     (currentLine.number !== 0) && (
-                      <span className='change-text-btn' onClick={backLine}>
+                      <span className='change-text-btn' onClick={backLine} title='click to read the previous line'>
                         Back
                       </span>
                     )
                   }
                   {
                     (currentLine.number !== (chapterLines.length - 1)) && (
-                      <span className='change-text-btn' onClick={nextLine}>
+                      <span className='change-text-btn' onClick={nextLine} title='click to read the next line'>
                         Next
                       </span>
                     )

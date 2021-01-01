@@ -1,14 +1,29 @@
+/* orbitron-regular - latin */
+@font-face {
+  font-family: 'PressStart2P';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./PressStart2P.ttf');
+  src: local(''),
+    url('./PressStart2P.ttf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('./PressStart2P.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+* {
+  font-family: PressStart2P, sans-serif;
+}
+
 body {
   margin: 0;
 }
 
 a {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:active {
@@ -30,6 +45,7 @@ h1 {
   position: absolute;
   top: 0;
   margin: 2rem;
+  font-size: 1.5rem;
 }
 
 ul {
@@ -38,7 +54,7 @@ ul {
 
 li {
   list-style: none;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   text-align: center;
 }
 
@@ -66,6 +82,10 @@ main {
   position: relative;
 }
 
+.copyright {
+  font-size: 0.75rem;
+}
+
 .main-menu {
   display: flex;
   flex-direction: column;;
@@ -73,6 +93,11 @@ main {
 
 .return-to-home {
   margin-bottom: 2rem;
+}
+
+.stay-tuned {
+  font-size: 0.75rem;
+  margin-top: 2rem;
 }
 
 .table-of-contents {
