@@ -38,6 +38,12 @@ ul {
 
 li {
   list-style: none;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+li:nth-last-child() {
+  margin-bottom: unset;
 }
 
 main {
