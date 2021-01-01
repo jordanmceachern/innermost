@@ -50,9 +50,6 @@ const Chapters = () => {
             )
           }
         </ul>
-        <p className='return-to-home'>
-          <Link to='/'>Main Menu</Link>
-        </p>
       </main>
     </Layout>
   )

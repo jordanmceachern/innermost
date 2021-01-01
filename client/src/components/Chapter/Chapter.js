@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'gatsby'
 import Layout from '../Layout/Layout'
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 import './Chapter.css'
@@ -10,6 +9,8 @@ const Chapter = props => {
   const { pageContext } = props
   const { content, chapterNumber } = pageContext
   const pageTitle = 'Chapter ' + chapterNumber
+  //
+  // Manipulate the current line before saving in state
   const formatCurrentLine = number => {
     const currentSpanStr = chapterLines[number].slice(1)
     const lineTextStart = currentSpanStr.indexOf('>') + 1
@@ -109,11 +110,6 @@ const Chapter = props => {
             )
           }
         </div>
-        <p className='return-to-home'>
-          <Link to='/'>
-            Main Menu
-          </Link>
-        </p>
       </main>
     </Layout>
   )
