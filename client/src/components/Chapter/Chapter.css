@@ -3,7 +3,6 @@
   border-radius: 0.25rem;
   background-color: #fff;
   color: #000;
-  font-weight: 700;
   margin: 0 0.5rem;
 }
 
@@ -14,22 +13,30 @@
   bottom: 0;
   left: 0;
   right: 0;
+  margin-bottom: 1rem;
 }
 
 .change-text-btn:hover {
   cursor: pointer;
-  opacity: 0.8;
+  background-color: rgb(200,200,200);
 }
 
 .current-text {
-  font-weight: 500;
   text-align: left;
+  line-height: 19px;
+  margin: 0 0 1rem 0;
 }
 
 .dialogue-container {
+  min-width: 180px;
   max-width: 640px;
-  min-height: 76px;
-  position: relative
+  height: 97px;
+  overflow-y: scroll;
+  position: relative;
+  background-color: rgb(40,40,40);
+  border-radius: 0.25rem;
+  padding: 1rem 1rem 0 1rem;
+  border: 2px solid #fff;
 }
 
 .main-container {

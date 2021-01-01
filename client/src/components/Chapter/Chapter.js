@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'gatsby'
 import Layout from '../Layout/Layout'
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 import './Chapter.css'
@@ -7,23 +6,57 @@ import './Chapter.css'
 const Chapter = props => {
   const [chapterLines, setChapterLines] = useState([])
   const [currentLine, setCurrentLine] = useState(null)
+  const [currentLineNumber, setCurrentLineNumber] = useState(0)
   const { pageContext } = props
   const { content, chapterNumber } = pageContext
   const pageTitle = 'Chapter ' + chapterNumber
+  //
+  // Manipulate the current line before saving in state
   const formatCurrentLine = number => {
     const currentSpanStr = chapterLines[number].slice(1)
     const lineTextStart = currentSpanStr.indexOf('>') + 1
     const lineTextEnd = currentSpanStr.indexOf('<')
-    return currentSpanStr.slice(lineTextStart, lineTextEnd)
+    let rawLine = currentSpanStr.slice(lineTextStart, lineTextEnd)
+    //
+    rawLine = rawLine.replaceAll('&rsquo;', '\'')
+    rawLine = rawLine.replaceAll('&lsquo;', '\'')
+    rawLine = rawLine.replaceAll('&#39;', '\'')
+    rawLine = rawLine.replaceAll('&rdquo;', '"')
+    rawLine = rawLine.replaceAll('&ldquo;', '"')
+    rawLine = rawLine.replaceAll('&quot;', '"')
+    //
+    if (rawLine.length === 0) {
+      rawLine = '...'
+    }
+    //
+    return rawLine
   }
+  const animateLineOutput = async line => {
+    const lineArr = line.split('')
+    const renderedLineArr = []
+    let displayedText = ' '
+    //
+    setCurrentLine(displayedText)
+    //
+    let i = 0
+    const timer = setInterval(() => {
+      renderedLineArr.push(lineArr[i])
+
+      displayedText = renderedLineArr.join('')
+      setCurrentLine(displayedText)
+      i++
+      if (i === lineArr.length) {
+        clearInterval(timer)
+      }
+    }, 50)
+  }
+
   const changeLine = iterator => {
-    const stagedNumber = currentLine.number + iterator
+    const stagedNumber = currentLineNumber + iterator
     const stagedCurrentLine = formatCurrentLine(stagedNumber)
     //
-    setCurrentLine({
-      text: stagedCurrentLine,
-      number: stagedNumber
-    })
+    setCurrentLineNumber(stagedNumber)
+    animateLineOutput(stagedCurrentLine)
   }
   const backLine = () => changeLine(-1)
   const nextLine = () => changeLine(1)
@@ -62,11 +95,9 @@ const Chapter = props => {
   //
   // Parse and set the first line in state once all lines for the chapter have been set in state
   useEffect(() => {
-    if (chapterLines.length > 0) {
-      setCurrentLine({
-        text: formatCurrentLine(0),
-        number: 0
-      })
+    if (chapterLines.length > 0 && (currentLineNumber === 0)) {
+      const rawLine = formatCurrentLine(0)
+      animateLineOutput(rawLine)
     }
   }, [chapterLines])
   //
@@ -87,19 +118,19 @@ const Chapter = props => {
             (chapterLines.length > 0) && currentLine && (
               <div className='dialogue-container'>
                 <p className='current-text'>
-                  {currentLine.text}
+                  {currentLine}
                 </p>
                 <div className='change-text-btn-container'>
                   {
-                    (currentLine.number !== 0) && (
-                      <span className='change-text-btn' onClick={backLine}>
+                    (currentLineNumber !== 0) && (
+                      <span className='change-text-btn' onClick={backLine} title='click to read the previous line'>
                         Back
                       </span>
                     )
                   }
                   {
-                    (currentLine.number !== (chapterLines.length - 1)) && (
-                      <span className='change-text-btn' onClick={nextLine}>
+                    (currentLineNumber !== (chapterLines.length - 1)) && (
+                      <span className='change-text-btn' onClick={nextLine} title='click to read the next line'>
                         Next
                       </span>
                     )
@@ -109,11 +140,6 @@ const Chapter = props => {
             )
           }
         </div>
-        <p className='return-to-home'>
-          <Link to='/'>
-            Main Menu
-          </Link>
-        </p>
       </main>
     </Layout>
   )

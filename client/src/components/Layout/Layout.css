@@ -1,22 +1,51 @@
+/* orbitron-regular - latin */
+@font-face {
+  font-family: 'PressStart2P';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./PressStart2P.ttf');
+  src: local(''),
+    url('./PressStart2P.ttf?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('./PressStart2P.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
+* {
+  font-family: PressStart2P, sans-serif;
+}
+
 body {
   margin: 0;
 }
 
 a {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:active {
   opacity: 0.8;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  margin: 2rem;
+}
+
+footer p {
+  text-align: center;
+}
+
 h1 {
   text-align: center;
+  position: absolute;
+  top: 0;
+  margin: 2rem;
+  font-size: 1.5rem;
 }
 
 ul {
@@ -25,6 +54,12 @@ ul {
 
 li {
   list-style: none;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+li:nth-last-child() {
+  margin-bottom: unset;
 }
 
 main {
@@ -32,8 +67,8 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
 }
 
 .app-container {
@@ -44,20 +79,25 @@ main {
   align-items: center;
   height: 100vh;
   width: 100vw;
+  position: relative;
 }
 
 .copyright {
-  text-align: center;
+  font-size: 0.75rem;
 }
 
 .main-menu {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column;;
 }
 
 .return-to-home {
-  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.stay-tuned {
+  font-size: 0.75rem;
+  margin-top: 2rem;
 }
 
 .table-of-contents {

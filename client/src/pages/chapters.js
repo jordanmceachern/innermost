@@ -27,6 +27,7 @@ const Chapters = () => {
       for (let i = 1; i <= numberOfFiles; i++) {
         chapterList.push(<li key={i}><Link to={`/chapters/chapter-${i}`}>Chapter {i}</Link></li>)
       }
+      chapterList.push(<li key={chapterList.length + 1} className='stay-tuned'>Stay tuned for the next chapter</li>)
       setTableOfContents(chapterList)
     }
   }, [data])
@@ -50,9 +51,6 @@ const Chapters = () => {
             )
           }
         </ul>
-        <p className='return-to-home'>
-          <Link to='/'>Main Menu</Link>
-        </p>
       </main>
     </Layout>
   )

@@ -29,7 +29,6 @@ const IndexPage = () => {
             </li>
           </ul>
         </div>
-        <p className='copyright'>Copyright 2020</p>
       </main>
     </Layout>
   )
