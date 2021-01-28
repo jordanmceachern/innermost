@@ -27,7 +27,7 @@ const NotFoundPage = () => {
       <title>Not found</title>
       <h1 style={headingStyles}>Page not found</h1>
       <p style={paragraphStyles}>
-        There was a problem finding the files needed to load "Living in a Video Game, please try again or return to the main menu.
+        There was a problem finding the files needed to load "Living in a Video Game", please try again or return to the main menu.
       </p>
       <div>
         <a href='.' style={{ ...returnLinkStyles, marginRight: '1rem' }}>Refresh Page</a>
