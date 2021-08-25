@@ -1,6 +1,9 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
+import { Router } from '@reach/router'
 import Layout from '../components/Layout/Layout'
+import Chapters from './chapters'
+import Chapter from '../components/Chapter/Chapter'
 
 const IndexPage = () => {
   return (
@@ -28,6 +31,10 @@ const IndexPage = () => {
               </Link>
             </li>
           </ul>
+          <Router>
+            <Chapters path='/chapters' />
+            <Chapter path='/chapters/*' />
+          </Router>
         </div>
       </main>
     </Layout>
