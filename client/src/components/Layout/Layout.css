@@ -17,16 +17,17 @@ body {
   margin: 0;
 }
 
-a {
+a, .link {
   color: #fff;
   text-decoration: none;
 }
 
-a:hover {
+a:hover, .link:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
-a:active {
+a:active, .link:active {
   opacity: 0.8;
 }
 
@@ -100,6 +101,10 @@ main {
   margin-top: 2rem;
 }
 
-.table-of-contents {
+.table-of-contents, .about {
   max-width: 640px;
+}
+
+.about {
+  line-height: 1.25rem;
 }

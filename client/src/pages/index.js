@@ -2,8 +2,9 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import { Router } from '@reach/router'
 import Layout from '../components/Layout/Layout'
-import Chapters from './chapters'
 import Chapter from '../components/Chapter/Chapter'
+import Chapters from './chapters'
+import { AuthRoutes } from '../utils/auth'
 
 const IndexPage = () => {
   return (
@@ -15,16 +16,7 @@ const IndexPage = () => {
         </h1>
         <div className='main-menu'>
           <ul>
-            <li>
-              <Link to='/chapters/chapter-1'>
-                Begin the story
-              </Link>
-            </li>
-            <li>
-              <Link to='/chapters'>
-                Select Chapter
-              </Link>
-            </li>
+            <AuthRoutes />
             <li>
               <Link to='/about'>
                 About Living in a Video Game
