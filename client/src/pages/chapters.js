@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import Layout from '../components/Layout/Layout'
 import LoadingSpinner from '../components/LoadingSpinner/LoadingSpinner'
+import { getProfile } from '../utils/auth'
 
 const Chapters = () => {
   const [tableOfContents, setTableOfContents] = useState([])
+  const user = getProfile()
   const data = useStaticQuery(graphql`
     query {
       allFile {
@@ -31,6 +33,8 @@ const Chapters = () => {
       setTableOfContents(chapterList)
     }
   }, [data])
+
+  console.log('user: ', user)
 
   return (
     <Layout>
