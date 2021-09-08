@@ -22,7 +22,7 @@ exports.createPages = async function ({ actions, graphql, getNode }) {
     const nodeContent = await getNodeContent(currentNode)
     const slug = `/chapters/chapter-${node.node.name}`
     //
-    actions.createPage({
+    await actions.createPage({
       path: slug,
       component: path.resolve('src/components/Chapter/Chapter.js'),
       context: {
@@ -42,7 +42,7 @@ exports.onCreatePage = async ({ page, actions }) => {
     page.matchPath = "/chapters/*"
 
     // Update the page.
-    createPage(page)
+    await createPage(page)
   }
 }
 

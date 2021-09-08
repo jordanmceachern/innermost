@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import Layout from '../components/Layout/Layout'
 import LoadingSpinner from '../components/LoadingSpinner/LoadingSpinner'
-import { getProfile } from '../utils/auth'
+import { getProfile, login, isAuthenticated } from '../utils/auth'
 
 const Chapters = () => {
   const [tableOfContents, setTableOfContents] = useState([])
@@ -20,6 +20,18 @@ const Chapters = () => {
       }
     }
   `)
+
+  useEffect(() => {
+    if (!isAuthenticated()) {
+      login()
+
+      return (
+        <Layout>
+          <p>Redirecting to login...</p>
+        </Layout>
+      )
+    }
+  }, [])
 
   useEffect(() => {
     const numberOfFiles = data?.allFile?.edges?.length

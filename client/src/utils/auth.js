@@ -46,10 +46,9 @@ const setSession = (cb = () => {}) => (err, authResult) => {
   }
   
   if (authResult?.accessToken && authResult?.idToken) {
-    let expiresAt = authResult.expiresIn * 1000 + new Date().getTime()
     tokens.accessToken = authResult.accessToken
     tokens.idToken = authResult.idToken
-    tokens.expiresAt = expiresAt
+    tokens.expiresAt = authResult.expiresIn * 1000 + new Date().getTime()
     user = authResult.idTokenPayload
     localStorage.setItem('isLoggedIn', true)
     navigate('/')
@@ -67,6 +66,19 @@ export const handleAuthentication = () => {
   
 export const getProfile = () => {
   return user
+}
+
+export const silentAuth = callback => {
+  if (!isAuthenticated()) {
+    return callback()
+  }
+
+  auth.checkSession({}, setSession(callback))
+}
+
+export const logout = () => {
+  localStorage.setItem('isLoggedIn', false)
+  auth.logout()
 }
 
 export const AuthRoutes = () => {
